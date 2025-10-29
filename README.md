@@ -1,61 +1,65 @@
-# BlackStock — Portfolio Intelligence Engine (CLI MVP)
+# 📈 BlackStock — Portfolio Intelligence Engine (CLI MVP)
 
-BlackStock is a compact portfolio–construction engine that turns a list of tickers into three ready-to-use allocations (Conservative, Balanced, Risk-Seeking). It runs by launching cli.py and pressing Start—no console commands required. 
-
-# Why it matters
-
-Most “portfolio tools” show charts. BlackStock produces an actionable plan: target weights, expected risk/return, and a purchase breakdown (supports fractional shares). It’s built for students, quants-in-training, and busy investors who want a rational allocation fast—and a clear view of uncertainty.
+BlackStock turns a simple list of tickers into three institution-grade portfolios — Conservative, Balanced, and Risk-Seeking — with clear metrics, an executable purchase plan (incl. fractional shares), and optional Monte Carlo risk scenarios.
+Launch via cli.py and press Start — no terminal commands needed.
 
 
-# Modern Portfolio Theory (Markowitz)
-  _We estimate daily returns and covariances from adjusted prices (Yahoo Finance), annualize, and solve:_
+# ✨ Why BlackStock
 
-- Min-Vol: minimize variance under long-only, fully invested constraints.
-
-- Max-Sharpe: maximize Sharpe (excess return per unit risk).
-
-- Balanced: target-volatility point on the efficient frontier.
-
-# Monte Carlo (optional)
-- We simulate many future paths of portfolio value (GBM or historical bootstrap) and report P5/P50/P95, median max drawdown, and probability of ending below the start. This translates “average return” into scenarios you can reason about.
-  
-**Purchase plan :**
-  
-- Final weights are turned into a cash split and number of shares (fractional or whole). Export to PDF/XLSX/CSV for record-keeping.
-The core optimization & simulation pipeline is implemented and productionized for CLI. Commission calibration is not yet included and will arrive in a later update.
+Most tools show charts. BlackStock delivers decisions: target weights, expected risk/return, and exact quantities to buy. It’s fast, explainable, and reproducible — the kind of rigor hiring managers appreciate.
 
 
-# What you get today :
+# 🧮 Methodology (in plain English)
 
-- Clean inputs (tickers, date window, amount) → three optimized portfolios.
+**Modern Portfolio Theory (Markowitz)**
 
+- Estimate daily returns & covariances from adjusted prices (Yahoo Finance), annualize.
+- Solve three long-only, fully invested problems:
+
+    - Min-Vol — minimize 
+    - Max-Sharpe — maximize 
+    - Balanced — target-volatility point on the efficient frontier.
+
+**Monte Carlo (optional)**
+
+  - Simulate thousands of future paths (GBM or historical bootstrap).
+
+  - Report P5/P50/P95, median max drawdown, and probability of finishing below start.
+    Translation: not just “average return,” but realistic scenarios.
+
+**Purchase Plan**
+
+  - Convert weights → cash split → share quantities (fractional or whole).
+  - Export PDF/XLSX/CSV for audit and execution.
+
+
+# 🎯 What you get today
+
+- Three optimized portfolios from clean inputs (tickers, dates, amount).
 - Transparent metrics (annual return, volatility, Sharpe) and an actionable purchase plan.
+- Optional scenario analysis via Monte Carlo.
+- One-click run: open cli.py, press Start.
 
-- Optional risk scenarios via Monte Carlo.
+# 🗺️ Roadmap
 
-- Report exports for sharing or audit trails.
+- Desktop App (WPF/Streamlit): interactive sliders, rebalancing, report builder.
+- Mobile App: on-the-go “what-if” checks.
+- Robust covariance (Ledoit–Wolf), sector/asset caps, tolerance bands, walk-forward validation.
+- Commission & tax modeling (calibration coming next).
+- Optional ML overlays (Ridge/LightGBM) to inform μ/σ/regime estimates for mixed-scenario Monte Carlo.
 
-# Roadmap
+# 🧱 Tech Snapshot
 
-- Desktop App (WPF/Streamlit) with interactive sliders, rebalancing, and report builder.
+- Python
+- NumPy/Pandas/SciPy
+- Yahoo Finance (yfinance)
+- ReportLab (PDF)
+- Clean CLI entrypoint (cli.py).
 
-- Mobile App for quick “what-if” checks on the go.
+# ⚖️ Status & Note
 
-- Robust covariance (Ledoit–Wolf), sector/asset caps, rebalancing bands, walk-forward validation.
+- Core algorithm: productionized for CLI, actively evolving.
+- Commission calibration: not included yet; planned in upcoming updates.
+- This project is educational/analytical and not investment advice.
 
-- Commission/tax modeling and execution-aware sizing.
-
-- Optional ML overlays (Ridge/LightGBM) to inform μ/σ/regime estimates for scenario-mixed Monte Carlo.
-
-# Status
-
-- Core algorithm: ready and evolving.
-
-- Interface: CLI MVP now; Desktop next; Mobile after.
-
-
-# How to lounch ?
-
-**"Lounch with (start button) in cli.py"**
-
-**BlackStock converts financial theory into a disciplined plan you can actually execute—fast, explainable, and scenario-aware.**
+**BlackStock turns financial theory into a disciplined plan you can execute — fast, explainable, and scenario-aware.**
